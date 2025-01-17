@@ -1,0 +1,10 @@
+#+title: CV
+#+options: toc:nil
+#+HTML_HEAD: <script src="https://dohliam.github.io/dropin-minimal-css/switcher.js" type="text/javascript"></script>
+#+HTML_HEAD: <script async src="https://www.googletagmanager.com/gtag/js?id=G-8WKV7DQ4BV"></script>
+#+HTML_HEAD: <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-8WKV7DQ4BV');</script>
+#+HTML_HEAD: <style>body { hyphens: none; }</style>
+
+| [[file:index.org::about][About]] | [[file:blog.org][Research Overview]] | [[file:cv.org][CV]] | [[file:PaperReviews.org][Startup Adventures]] |
+
+[[file:JyotirmoyCV.pdf][/*Click here to download my CV*/]]
