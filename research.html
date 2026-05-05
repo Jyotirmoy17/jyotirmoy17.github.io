@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Research - Jyotirmoy Singh</title>
+<script src="https://dohliam.github.io/dropin-minimal-css/switcher.js" type="text/javascript"></script>
+<script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-J6EL5Z7Q1K"></script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-J6EL5Z7Q1K');</script>
+<style>body { hyphens: none; }</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Research</h1>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col class="org-left" />
+<col class="org-left" />
+<col class="org-left" />
+<col class="org-left" />
+<col class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><a href="index.html">About</a></td>
+<td class="org-left"><a href="research.html">Research</a></td>
+<td class="org-left"><a href="cv.html">Resume</a></td>
+<td class="org-left"><a href="PaperReviews.html">Startup Adventures</a></td>
+<td class="org-left"><a href="blog.html">Blog</a></td>
+</tr>
+</tbody>
+</table>
+
+<h2>Thesis</h2>
+
+<p>
+<b><i>Multi-Agent AI Orchestration: The System-3/0 Blueprint</i></b><br />
+Supervised by Prof. Anand Rao (Carnegie Mellon University) and Prof. Chittaranjan Hota (BITS Pilani). Fall 2025 - Spring 2026.
+</p>
+
+<p>
+Most multi-agent AI frameworks work fine in demos and fall apart in production. The failure modes are consistent: systems spend expensive models on simple tasks, malformed outputs from one agent corrupt every downstream step, and reasoning loops have no real stopping criterion so they spiral and burn through compute. My thesis argues these are systems problems, not prompting problems, and proposes an architectural fix called the System-3/0 Blueprint.
+</p>
+
+<p>
+The core idea is to separate orchestration from execution the way a kernel is separate from user processes. System-3 is the meta-controller that decides what runs next and enforces budget limits. System-0 is a schema-validation boundary that every agent output passes through before reaching downstream steps. System-1 agents are fast specialists with tool access. System-2 agents are deliberate reasoners that call tools only through System-1, which keeps every tool interaction auditable. Removing System-0 in ablation raised cascade failure rates from near-zero to around 35%.
+</p>
+
+<p>
+The whole framework runs locally with no GPU using Ollama. That was a deliberate choice.
+</p>
+
+<h2>Publications</h2>
+
+<p>
+<b><i>Agentic Anomaly Detection (ORCA)</i></b> | Under Review at ICML 2026
+</p>
+
+<p>
+An edge-deployable anomaly detector for clinical data. Combines MinGRU and ConSmax attention with a Gemini-powered meta-reasoner for real-time clinical synthesis. Evaluated on MIMIC-IV data.
+</p>
+
+<p>
+<b><i>Explainable AI for Predictive Healthcare</i></b> | Targeting NeurIPS 2026
+</p>
+
+<p>
+Compresses ML ensembles into single interpretable decision trees using a Glass-Box distillation pipeline, retaining 96% accuracy on MIMIC-IV clinical data. The goal is making predictive healthcare models something a clinician can actually audit and trust.
+</p>
+
+<h2>Past Work</h2>
+
+<p>
+<b><i>Anomaly Detection and Predictive Healthcare</i></b><br />
+With Prof. Chittaranjan Hota, BITS Pilani Hyderabad.
+</p>
+
+<p>
+Working at the intersection of healthcare and AI to improve the reliability of Wireless Body Area Networks (WBANs). The project combines fault management, federated learning, and LLM-powered anomaly detection to build more robust health monitoring networks that keep patient data private while still learning from diverse populations.
+</p>
+
+<p>
+<b><i>Comparing Neural Networks and ML for Rainfall Prediction in North Eastern India</i></b><br />
+With Scientist Ritu Anilkumar, <a href="https://nesac.gov.in/">North Eastern Space Applications Centre</a>. Submitted for publishing.
+</p>
+
+<p>
+The goal was accurate, interpretable rainfall forecasting using 30 years of ERA5 climate data. We built Explainable Boosting Machines that classify rainfall into six intensity levels alongside two neural network architectures. The interpretability part mattered as much as the accuracy, since these predictions feed into agriculture and flood management decisions.
+</p>
+
+<p>
+<b><i>Building a Small Language Model for a Financial Firm</i></b><br />
+<a href="https://www.bits-pilani.ac.in/">BITS Pilani</a> x <a href="https://www.impactsure.com/">Impactsure Technologies</a>. $150K+ funded project. Research Lead.
+</p>
+
+<p>
+Led a team of four building compact Small Language Models for low-latency deployment at a financial services firm. We built both character-level and token-level model variants, fine-tuned with a Llama 8B base for strong customization, and used Reinforcement Learning from Human Feedback to get outputs aligned with real financial document requirements. Rail-Only architectures cut training costs by 20% and infrastructure requirements by 30% versus standard transformer fine-tuning.
+</p>
+
+</div>
+<div id="postamble" class="status">
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.3 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
+</div>
+</body>
+</html>

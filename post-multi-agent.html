@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>On multi-agent systems and why they keep breaking - Jyotirmoy Singh</title>
+<script src="https://dohliam.github.io/dropin-minimal-css/switcher.js" type="text/javascript"></script>
+<script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-J6EL5Z7Q1K"></script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-J6EL5Z7Q1K');</script>
+<style>body { hyphens: none; }</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">On multi-agent systems and why they keep breaking</h1>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col class="org-left" />
+<col class="org-left" />
+<col class="org-left" />
+<col class="org-left" />
+<col class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><a href="index.html">About</a></td>
+<td class="org-left"><a href="research.html">Research</a></td>
+<td class="org-left"><a href="cv.html">Resume</a></td>
+<td class="org-left"><a href="PaperReviews.html">Startup Adventures</a></td>
+<td class="org-left"><a href="blog.html">Blog</a></td>
+</tr>
+</tbody>
+</table>
+
+<p><i>May 2025 &nbsp;&middot;&nbsp; <a href="blog.html">Back to blog</a></i></p>
+
+<p>
+I've loved operating systems since I first understood what they were. The kernel managing processes, handling interrupts, enforcing memory boundaries, arbitrating access to shared resources. There's something deeply satisfying about that design: a small, trusted layer that maintains order so that everything above it can run without worrying about the details.
+</p>
+
+<p>
+When I started thinking about what was wrong with multi-agent AI systems, I kept coming back to the same realization. These systems have no kernel. The LLM is being asked to manage its own resources, control its own execution, and validate its own outputs, all at the same time it's trying to solve the actual problem. That doesn't work in computer systems and it doesn't work here either.
+</p>
+
+<p>
+That's why I chose this as my thesis topic.
+</p>
+
+<p>
+I spent the last year of my degree trying to understand why multi-agent AI systems are so unreliable in production. Not theoretically unreliable. Practically, consistently, in the same three ways.
+</p>
+
+<p>
+The first problem is cost. When you use a large frontier model for every step of a pipeline regardless of task complexity, your compute costs are unpredictable and usually indefensible. Simple tasks like extracting a field from a document do not need GPT-4. But most frameworks don't have a principled way to route tasks to cheaper models. They just use whatever you configured.
+</p>
+
+<p>
+The second problem is fragility. Multi-step pipelines are only as reliable as their weakest link. If one agent produces a slightly malformed JSON output, every downstream agent either crashes or silently works with bad data. Most frameworks have no contract enforcement between agents. There's no boundary that says "your output must match this schema before the next step sees it."
+</p>
+
+<p>
+The third problem is non-termination. Reasoning loops like ReAct have no formal stopping criterion. The model decides when it's done. And because the model is simultaneously trying to conserve resources and maximize accuracy, it tends toward one of two failure modes: stopping too early because it's cheap, or looping forever because it's trying to be thorough. These objectives are actually in conflict. You can't optimize both with the same model in the same loop.
+</p>
+
+<p>
+What struck me about all three of these is that they're systems problems. Not prompting problems. The fix is not a better prompt, it's a different architecture.
+</p>
+
+<h2>The System-3/0 Blueprint</h2>
+
+<p>
+My thesis proposes treating a multi-agent system the way you'd treat an operating system. Separate orchestration from execution at the architectural level.
+</p>
+
+<p>
+System-3 is the meta-controller, analogous to a kernel scheduler. It decides what runs next, dynamically builds execution graphs, and enforces global token budgets. The model does not decide when to stop. System-3 decides, based on a value-of-computation calculation.
+</p>
+
+<p>
+System-0 is the protection ring. Every agent output passes through it before reaching the next step. It uses constrained decoding and schema validation to project outputs onto a valid structure. It can't be bypassed. In my ablation study, removing System-0 brought cascade failure rates from near-zero to around 35%. That's the clearest result in the whole thesis.
+</p>
+
+<p>
+System-1 agents are fast specialists. They have direct tool access: file operations, code execution, web search. They're small language models, cheap to run, and focused on specific tasks.
+</p>
+
+<p>
+System-2 agents are deliberate reasoners. They can think through complex problems, but they can't touch tools directly. They have to call tools through System-1. That sounds like a constraint, and it is, but it means every tool interaction is auditable. System-2 can't make a system call without going through the protection ring.
+</p>
+
+<h2>Why this matters</h2>
+
+<p>
+The whole system runs locally. No GPU, no API costs. 24GB of RAM, Ollama, phi3:mini for System-1 and llama3.1:8b for System-2. That was a deliberate design choice: if the architecture only works with frontier models, it doesn't actually solve the cost problem, it just papers over it.
+</p>
+
+<p>
+3-4x token savings compared to monolithic approaches in the ablation. Near-zero cascade failures with System-0 active. These numbers hold on consumer hardware without any external API dependency.
+</p>
+
+<p>
+There's a broader point here about how we build AI systems. The current tendency is to treat the LLM as the controller of the whole system, including its own orchestration and stopping conditions. My thesis argues that's theoretically unsound. A probabilistic model exploring a state space can't objectively evaluate its own halting condition. You need an external deterministic layer for that. That's what System-3 is.
+</p>
+
+<p>
+The OS analogy runs deeper than a metaphor. System-3's Value-of-Computation halting rule is essentially a scheduler preempting runaway processes. System-0 is a protection ring. The dynamic Agent Registry is a process table with typed capability entries. The depth-k composability theorem is a formal statement of why user-space processes can't escalate privileges without going through the kernel. Old ideas applied to a new context, which is usually a good sign.
+</p>
+
+<p>
+That same architecture is what Jovalent runs on. When I finished the thesis I realized the orchestration layer I'd built was the thing I needed for the product. Those two things turned out to be the same project.
+</p>
+
+<p>
+I'll write more about specific implementation decisions after submission.
+</p>
+
+</div>
+<div id="postamble" class="status">
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.3 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
+</div>
+</body>
+</html>

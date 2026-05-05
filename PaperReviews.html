@@ -5,45 +5,96 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Entrepreneurial Milestones</title>
-<meta name="generator" content="Org Mode" />
+<title>Startup Adventures - Jyotirmoy Singh</title>
 <script src="https://dohliam.github.io/dropin-minimal-css/switcher.js" type="text/javascript"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J6EL5Z7Q1K"></script>
+<script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-J6EL5Z7Q1K"></script>
 <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-J6EL5Z7Q1K');</script>
 <style>body { hyphens: none; }</style>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Entrepreneurial Milestones</h1>
+<h1 class="title">Startup Adventures</h1>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
 <colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
+<col class="org-left" />
+<col class="org-left" />
+<col class="org-left" />
+<col class="org-left" />
+<col class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left"><a href="index.html#org0f0f97b">About</a></td>
-<td class="org-left"><a href="blog.html">Research Overview</a></td>
-<td class="org-left"><a href="cv.html">CV</a></td>
+<td class="org-left"><a href="index.html">About</a></td>
+<td class="org-left"><a href="research.html">Research</a></td>
+<td class="org-left"><a href="cv.html">Resume</a></td>
 <td class="org-left"><a href="PaperReviews.html">Startup Adventures</a></td>
+<td class="org-left"><a href="blog.html">Blog</a></td>
 </tr>
 </tbody>
 </table>
 
+<p>A running log of the ventures, projects, and experiments that didn't make it into the resume but probably shaped how I think.</p>
+
+<h2>Jovalent (2025 - Present)</h2>
+
 <p>
-Goals for 2025 - Sign my first Amateur Fight.
+Autonomous back office for US small businesses. We do the compliance and finance work, not help someone do it. Reconciliation, tax filing, form management, fully automated with no human in the loop. The distinction matters: QuickBooks is a database that shows you what to do. Jovalent does it.
 </p>
 
 <p>
-Cooking up something exciting, Coming soon&#x2026;
+Built on the LangGraph implementation of my thesis infrastructure. The same orchestration layer that handles multi-agent coordination in the research work handles financial workflow automation in the product. That was a fortunate accident.
 </p>
+
+<p>
+Launched $299/mo tier after a paid alpha at $40/mo. Wyoming LLC, Stripe Connect, QuickBooks, TaxBandits. More on the thinking behind it in the <a href="post-jovalent.html">blog post</a>.
+</p>
+
+<h2>Content Marketing Startup (Summer 2023)</h2>
+
+<p>
+While I was doing the NESAC research internship, I was simultaneously building a content marketing startup. The idea was helping brands write and distribute content that actually converts, not just content that exists. We got some traction and I learned a lot about what "distribution" actually means in practice. Some of the early thinking is <a href="https://foam-notebook-c6b.notion.site/Rich-Offer-Rich-Results-42052a57aab646f69a116e224d613193?pvs=74">documented here</a>.
+</p>
+
+<p>
+I didn't stick with it long enough, but running two things at the same time taught me something about prioritization that I haven't forgotten.
+</p>
+
+<h2>Gaming League (Age 14)</h2>
+
+<p>
+Before any of the AI stuff, I founded a competitive gaming league with a five-figure prize pool. This was eSports before eSports was a mainstream thing in India. I handled tournament formats, prize logistics, and getting sponsors to take a 14-year-old seriously.
+</p>
+
+<p>
+It's still the most operationally complex thing I had run at that point in my life. A lot of the instincts I have about coordination, deadlines, and what happens when you underestimate scope came from running this.
+</p>
+
+<h2>First Startup (Age 12)</h2>
+
+<p>
+Started in the eSports industry at 12. I don't have a lot of documentation from this era, which is probably for the best. But it was the start of a habit of building things before I fully knew what I was doing, which I've never been able to shake.
+</p>
+
+<h2>Crypto Funding Rate Arbitrage Bot (Weekend Project, 2026)</h2>
+
+<p>
+Delta-neutral strategy: short a perpetual futures contract on Binance, long the same asset on spot, collect the funding rate payment every 8 hours. When the perpetual trades at a premium to spot, longs pay shorts. The position has near-zero price exposure since you're long and short the same underlying simultaneously.
+</p>
+
+<p>
+Built the whole thing from scratch as a quant exercise. WebSocket streams for live data, DuckDB for storage, a persistence filter that only enters when rates have been elevated for multiple consecutive settlement periods, not just the current tick. In the Oct 2023 - Apr 2024 bull market backtest: Sharpe 3.21, max drawdown 0.089%, 14 wins out of 21 trades.
+</p>
+
+<p>
+Right now the strategy is correctly dormant. Current annualised rates are averaging 1.2-1.8%, nowhere near the 30% entry threshold needed to cover fees. A well-designed strategy sitting out a bad regime is a feature, not a bug. More detail in the <a href="post-crypto-bot.html">write-up</a>.
+</p>
+
+<h2>What's Next</h2>
+
+<p>
+Signed up for my first amateur combat sports fight in 2025. Training for that. Also trying to keep building Jovalent into something real. More updates here when there's something worth reporting.
+</p>
+
 </div>
 <div id="postamble" class="status">
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.3 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>

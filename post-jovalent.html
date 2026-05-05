@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Why I started Jovalent - Jyotirmoy Singh</title>
+<script src="https://dohliam.github.io/dropin-minimal-css/switcher.js" type="text/javascript"></script>
+<script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-J6EL5Z7Q1K"></script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-J6EL5Z7Q1K');</script>
+<style>body { hyphens: none; }</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Why I started Jovalent</h1>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col class="org-left" />
+<col class="org-left" />
+<col class="org-left" />
+<col class="org-left" />
+<col class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><a href="index.html">About</a></td>
+<td class="org-left"><a href="research.html">Research</a></td>
+<td class="org-left"><a href="cv.html">Resume</a></td>
+<td class="org-left"><a href="PaperReviews.html">Startup Adventures</a></td>
+<td class="org-left"><a href="blog.html">Blog</a></td>
+</tr>
+</tbody>
+</table>
+
+<p><i>April 2025 &nbsp;&middot;&nbsp; <a href="blog.html">Back to blog</a></i></p>
+
+<p>
+I've run into the back office problem twice. When I was building my eSports league, I got so overwhelmed by US compliance and tax that I never incorporated. I just didn't do it. Later, running a content agency, I spent more time manually reconciling Excel sheets and chasing freelancer invoices than actually doing the work that made money. Both times, the back office won.
+</p>
+
+<p>
+The tools that exist for this, QuickBooks, Gusto, and the rest, are passive databases. They organize your data. They don't do anything with it. You still have to go in, make decisions, and take the actions. They help you do the work, they don't do the work.
+</p>
+
+<p>
+There's also a newer category: services like Pilot and Zeni that look like software but are actually built on teams of humans doing the manual work behind the scenes. They're service businesses wearing a SaaS UI. Which means their margins cap out, and they can't actually scale the way software can.
+</p>
+
+<h2>The Agent Fatigue problem</h2>
+
+<p>
+When I started looking at what AI companies were building for this space, I noticed something. The market is filling up with narrow vertical agents. One for accounts payable. One for HR. One for legal. One for logistics. All of them are pitching themselves as "AI employees" you can hire.
+</p>
+
+<p>
+But an SMB CEO who has to manage 15 separate AI tools hasn't solved their back office problem. They've just created a new management problem. That's more overhead, not less.
+</p>
+
+<p>
+Jovalent's bet is that the right answer is a unified back-office OS, not a stack of point solutions. We start with the hardest wedge: financial compliance and execution. Paying bills, filing taxes, reconciliation. Once you control the money flows and the government filings, you own the system of record. HR, legal, and operations follow naturally from there because they're all downstream of the same data.
+</p>
+
+<h2>Why the thesis became the product</h2>
+
+<p>
+I spent the first half of this year on my thesis, which is about how to architect multi-agent AI systems so they're actually reliable in production. The infrastructure I built for that, specifically the LangGraph implementation of the orchestration framework, is the same infrastructure Jovalent runs on.
+</p>
+
+<p>
+This wasn't planned. When I started the thesis in August, I was thinking about it as a systems research problem. The R&D phase ran until December. When I submitted, I looked at what I'd built and realized I had an agent orchestration layer that was genuinely production-grade: structured outputs, budget-aware routing, no cascading failures. The obvious thing to do was turn it into a product.
+</p>
+
+<p>
+Full-time commercial execution started the first week of December. We ran a paid alpha at $40/mo with one customer to validate the agentic workflow. That data was useful but $40/mo customers have different expectations than real businesses do, so we moved to a $299/mo tier and started talking to the right customer profile.
+</p>
+
+<h2>What it actually does</h2>
+
+<p>
+Jovalent handles financial compliance and execution autonomously. Invoice processing, reconciliation, W-9 collection, 1099 generation, and tax filing for US SMBs. The system is connected to Stripe, QuickBooks, and TaxBandits. It makes decisions and takes actions, it doesn't just surface information and wait for a human to click something.
+</p>
+
+<p>
+The active-learning OCR pipeline is at 98% field-level accuracy on financial documents. Confidence scoring at the field level (not just document level) keeps error rates under 1% in production. When the system isn't confident, it flags for human review and uses that feedback to improve.
+</p>
+
+<p>
+The long-term goal is to expand into HR and legal and eventually run all non-core business tasks in the background. A CEO shouldn't have to think about the back office at all. That's the whole product.
+</p>
+
+</div>
+<div id="postamble" class="status">
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.3 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
+</div>
+</body>
+</html>
