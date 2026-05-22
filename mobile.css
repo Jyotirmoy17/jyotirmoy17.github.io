@@ -1,0 +1,103 @@
+/* Mobile-friendly layout — desktop appearance unchanged above breakpoints */
+
+body {
+  hyphens: none;
+}
+
+#content img {
+  max-width: 100%;
+  height: auto;
+}
+
+#content.content {
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 540px) {
+  #content.content {
+    padding: 0.75rem 1rem 2.5rem;
+  }
+
+  /* Site nav: wrap links instead of forcing a wide 5-column row */
+  #content > table[border="2"] {
+    border: none !important;
+    width: 100%;
+  }
+
+  #content > table[border="2"] colgroup {
+    display: none;
+  }
+
+  #content > table[border="2"] tbody {
+    display: block;
+  }
+
+  #content > table[border="2"] tr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem 0.85rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+  }
+
+  #content > table[border="2"] td {
+    display: inline-block;
+    padding: 0.35rem 0.25rem !important;
+    white-space: nowrap;
+  }
+
+  /* About page: photo above text, not squeezed beside it */
+  #content .figure img,
+  #content img[style*="float"] {
+    float: none !important;
+    display: block;
+    max-width: min(11rem, 65vw) !important;
+    margin: 0 auto 1.25rem !important;
+    padding: 0 !important;
+  }
+
+  /* Blog index: date on its own line */
+  #content table[border="0"] tr {
+    display: block;
+    margin-bottom: 1.35rem;
+  }
+
+  #content table[border="0"] td {
+    display: block;
+    width: auto !important;
+    max-width: 100%;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  #content table[border="0"] td:first-child {
+    margin-bottom: 0.2rem;
+    font-weight: 600;
+  }
+
+  #content pre,
+  #content table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #content a {
+    overflow-wrap: anywhere;
+  }
+
+  #postamble {
+    padding: 0 1rem 1rem;
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 380px) {
+  #content > table[border="2"] tr {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+  }
+}
