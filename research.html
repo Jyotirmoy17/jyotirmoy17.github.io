@@ -22,11 +22,13 @@
 <col class="org-left" />
 <col class="org-left" />
 <col class="org-left" />
+<col class="org-left" />
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left"><a href="index.html">About</a></td>
 <td class="org-left"><a href="research.html">Research</a></td>
+<td class="org-left"><a href="thesis.html">Thesis</a></td>
 <td class="org-left"><a href="cv.html">Resume</a></td>
 <td class="org-left"><a href="PaperReviews.html">Startup Adventures</a></td>
 <td class="org-left"><a href="blog.html">Blog</a></td>
@@ -37,8 +39,9 @@
 <h2>Thesis</h2>
 
 <p>
-<b><i>Multi-Agent AI Orchestration: The System-3/0 Blueprint</i></b><br />
-Supervised by Prof. Anand Rao (Carnegie Mellon University) and Prof. Chittaranjan Hota (BITS Pilani). Fall 2025 - Spring 2026.
+<b><i>The System-3/0 Blueprint: A Formally Verified Orchestration Framework for Multi-Agent Systems</i></b><br />
+Supervised by Prof. Anand Rao (Carnegie Mellon University) and Prof. Chittaranjan Hota (BITS Pilani). Fall 2025 - Spring 2026.<br />
+[<a href="view.pdf">PDF</a>] &nbsp;&#183;&nbsp; [<a href="https://github.com/Jyotirmoy17/System-3-0-MAS-OS">Code</a>]
 </p>
 
 <p>
@@ -46,11 +49,11 @@ Most multi-agent AI frameworks work fine in demos and fall apart in production. 
 </p>
 
 <p>
-The core idea is to separate orchestration from execution the way a kernel is separate from user processes. System-3 is the meta-controller that decides what runs next and enforces budget limits. System-0 is a schema-validation boundary that every agent output passes through before reaching downstream steps. System-1 agents are fast specialists with tool access. System-2 agents are deliberate reasoners that call tools only through System-1, which keeps every tool interaction auditable. Removing System-0 in ablation raised cascade failure rates from near-zero to around 35%.
+The core idea is to separate orchestration from execution the way a kernel is separate from user processes. System-3 is the meta-controller that decides what runs next and enforces budget limits. System-0 is a schema-validation boundary that every agent output passes through before reaching downstream steps. System-1 agents are fast specialists with tool access. System-2 agents are deliberate reasoners that call tools only through System-1, which keeps every tool interaction auditable. Removing System-0 in ablation raised cascade failure rates from 0.0% to 38.0% (p &lt; 0.001).
 </p>
 
 <p>
-The whole framework runs locally with no GPU using Ollama. That was a deliberate choice.
+The framework is validated through a paired ablation study across 300 runs. The System-3/0 architecture reduces mean token expenditure by 3.6&#215; (1,600 vs 5,724 tokens). The full implementation runs locally on consumer hardware (24 GB RAM, no GPU) via Ollama.
 </p>
 
 <h2>Publications</h2>
